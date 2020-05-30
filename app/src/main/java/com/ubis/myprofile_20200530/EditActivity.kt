@@ -12,8 +12,12 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
-        EditBtn.setOnClickListener {
+        val MyTempId = intent.getStringExtra("MySetId")
 
+        if( MyTempId == "본인 닉네임")   EditId.setText("")
+        else    EditId.setText(MyTempId)
+
+        EditBtn.setOnClickListener {
             val NickName = EditId.text.toString()
             val resultIntece = Intent()
             resultIntece.putExtra("nick", NickName)

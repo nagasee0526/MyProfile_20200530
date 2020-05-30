@@ -16,9 +16,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         IdChange.setOnClickListener {
-
-            val myInten = Intent(this, EditActivity::class.java)
-            startActivityForResult(myInten, REQ_FOR_NICKNAME)
+            val MyId = NickName.text.toString()
+            val myIntent = Intent(this, EditActivity::class.java)
+            myIntent.putExtra( "MySetId", MyId)
+            startActivityForResult(myIntent, REQ_FOR_NICKNAME)
         }
 
         NumDial.setOnClickListener {
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val inputText = EditText.text.toString()
             val MyUri = Uri.parse("smsto:${inputPhoneNum.replace("_", "")}")
             val myIntent = Intent(Intent.ACTION_SENDTO, MyUri)
-            myIntent.putExtra("sms_body", "${inputText}")
+            myIntent.putExtra("sms_body", "$inputText")
             startActivity(myIntent)
         }
     }
