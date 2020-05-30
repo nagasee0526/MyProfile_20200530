@@ -2,6 +2,7 @@ package com.ubis.myprofile_20200530
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,6 +19,24 @@ class MainActivity : AppCompatActivity() {
 
             val myInten = Intent(this, EditActivity::class.java)
             startActivityForResult(myInten, REQ_FOR_NICKNAME)
+        }
+
+        NumDial.setOnClickListener {
+
+            val inputPhoneNum = PhoneNum.text.toString()
+            val MyUri = Uri.parse("tel:${inputPhoneNum.replace("_", "")}")
+            val myIntent = Intent(Intent.ACTION_DIAL, MyUri)
+            startActivity(myIntent)
+        }
+
+        TextSend.setOnClickListener {
+
+            val inputPhoneNum = PhoneNum.text.toString()
+            val inputText = EditText.text.toString()
+            val MyUri = Uri.parse("smsto:${inputPhoneNum.replace("_", "")}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, MyUri)
+            myIntent.putExtra("sms_body", "${inputText}")
+            startActivity(myIntent)
         }
     }
 

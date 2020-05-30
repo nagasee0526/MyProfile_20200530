@@ -45,9 +45,11 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/PhoneNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:inputType="phone"
             android:hint="전화번호 입력"/>
 
         <TextView
@@ -55,6 +57,7 @@
             android:layout_height="match_parent"/>
 
         <Button
+            android:id="@+id/NumDial"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="연결"/>
@@ -67,6 +70,7 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/EditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -77,9 +81,10 @@
             android:layout_height="match_parent"/>
 
         <Button
+            android:id="@+id/TextSend"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="전송"/>
+            android:text="문자전송"/>
     </LinearLayout>
 
 </LinearLayout>
